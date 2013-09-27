@@ -8,11 +8,10 @@ SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
-)
+
 GRAPPELLI_ADMIN_TITLE = 'CHURCH ADMINISTRATION'
-MANAGERS = ADMINS
+GRAPPELLI_ADMIN_HEADLINE ='church admin'
+GRAPPELLI_AUTOCOMPLETE_LIMIT = 10
 
 DATABASES = {
     'default': {
@@ -69,6 +68,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
+    os.path.join(SITE_ROOT, 'assets'),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -77,8 +77,9 @@ STATICFILES_DIRS = (
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
@@ -108,6 +109,7 @@ ROOT_URLCONF = 'churchPro.urls'
 WSGI_APPLICATION = 'churchPro.wsgi.application'
 
 TEMPLATE_DIRS = (
+    os.path.join(SITE_ROOT,'templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

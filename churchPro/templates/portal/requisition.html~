@@ -1,0 +1,93 @@
+{% extends "portal/mainpage.html" %}
+
+{%block title%}<title>REQUISITION </title> {%endblock title%}
+
+
+	
+
+ 
+     {% block content %}
+   {% ifnotequal galore '' %}
+   <div class="modal hide fade" id="myModal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">x</button>
+    <h3></h3>
+  </div>
+  <div class="modal-body">
+    {{requisitions_tod}}
+  </div>
+  <div class="modal-footer">
+    <a href="/requisition/today/" class="btn" data-dismiss="modal">Close</a>
+  </div>
+</div>
+     {% endifnotequal %}
+     
+<div class = "container"style="background-color:pink;text-align:center;">  <h3>Welcome to Requisitions</h3></div>  
+  
+ <div class="container" style ="height:530px; background-color : #ECE5B6;">
+
+ 
+          
+  	 <div class="container" style="background-color:;">
+  		  <div class="span3" style="background-color:pink; margin-left:0px; ">  		
+  		   <div  class ="well" style="background-color: grey;">
+           <ul class="nav nav-list" style="background-color: yellow; margin-left:-15px;">
+             
+              <li class="active"><a  href ="/requisition"><i class="icon-book"></i>Requisitions</a></li>
+               <li><a  href ="/requisition/today/"><i class="icon-book"></i>Today({{requisitions_tod.count}})</a></li>
+              <li><a href="#" ><i class="icon-book"></i>This Week ()</a></li>
+               <li><a href="#" ><i class="icon-book"></i>This Month ()</a></li>
+               <li><a href="#" ><i class="icon-book"></i>This Year ()</a></li>
+               <li><a href="#" ><i class="icon-book"></i>All ()</a></li>
+              <li class=""><a  href ="/aics_portal"><i class="icon-book"></i>Main Page</a></li>
+              
+              
+            </ul>
+            </div>
+         
+  		 
+  		  </div>
+
+    			<div class="span9" style="position: ; background-color:black; margin-top:0px;">
+      			<!--Sidebar content-->
+      <span class="thumbnail">
+                  <img alt="260x180" data-src="holder.js/260x180" style="width: 900px; height: 340px;" src="/static/adobia/ADOBIA7.jpg">
+                              </img>
+                     
+                    </span>
+      
+           
+                 
+                
+            
+            
+             
+             
+           
+             
+          
+
+		
+  		
+  
+
+
+
+
+
+
+
+
+</div>
+
+
+
+</div>
+</div>
+
+  
+
+
+     {% endblock %}
+
+ 

@@ -71,15 +71,16 @@ class member(models.Model):
 	age             =	models.PositiveIntegerField(blank = True, null = True,help_text ="Generated from date of birth")
      	sex             =	models.CharField('Gender', choices =(("Male","Male"),("Female","Female")),max_length = 7)
      	date_Of_birth   =	models.DateField(blank = True, null = True,help_text = "YYYY-MM-DD")
-        level           =	models.CharField(max_length=3,blank =True, null = True,choices=(("100","100"),("200","200"),("300","300"),("400","400")))
+        level           =	models.CharField(max_length=3,blank =True, null = True,default = "None",choices=(("100","100"),("200","200"),("300","300"),("400","400")))
         course		=	models.CharField(max_length=60,blank=True, null = True)	
         country		=	models.ForeignKey(Country,default = "GH")
-        year            =       models.ForeignKey(Year,blank =True, null = True,help_text="Select Year of completion/ enter new if not in the list")
+        year            =       models.ForeignKey(Year,default =None, blank =True, null = True,help_text="Select Year of completion/ enter new if not in the list")
 	hall		=	models.ForeignKey(Halls,blank =True, null = True)
 	auxilliary	=	models.ForeignKey(Auxillary,help_text ="Select Member's Auxilliary/ enter new if not in the list",blank=True, null=True)
 	current_position=	models.ForeignKey(Position, related_name="c_position", blank= True, null = True,
 				help_text="Select Member's Position in the church, leave blank if member hold's no position")
         positions_held  =       models.ManyToManyField(Position, verbose_name ="positions held",related_name="post_held",blank=True, null=True)
+        completed       =       models.BooleanField(blank = False, null = False,help_text = "Check if person has completed ")
 	date_added	= 	models.DateTimeField (auto_now_add=True, blank =True, null = True)
      	date_updated    = 	models.DateTimeField (auto_now=True,blank =True, null = True)
 	
@@ -89,11 +90,10 @@ class member(models.Model):
 	def Full_name (self):
               return "%s, %s" %(self.surname, self.other_name)
 
-        def completed(self):
-             if self.year:
-                  if int(self.year)-int(datetime.now().strftime("%G"))==0:
+        def completed_(self):
+             if self.completed == True:
 			return "YES"
-                  else:
+             else:
                         return "NO"
         def birthday(self):
             if self.date_Of_birth:
@@ -156,11 +156,12 @@ class member_Admin(admin.ModelAdmin):
 			'sex','phone_number',
 			'email_addres','age',
 			'hall','date_Of_birth',
-			'level','course',
-			'date_added','date_updated')
+			'level','course','year','completed_'
+			)
       search_fields = ('index_number','surname','other_name','phone_number')
       list_filter = ('sex','hall','level')
-      list_per_page = 20
+      list_per_page = 50
+      date_hierarchy    = 'date_added'
       inlines = [titheInline]
       readonly_fields =('age','mem_id',)
       fieldsets         = ( ("Personal details", {'fields':
@@ -168,7 +169,7 @@ class member_Admin(admin.ModelAdmin):
 							'sex',('phone_number','email_addres'),
 							('date_Of_birth','age'),
 							('level','hall'),'course')}),
-                             ("Church details",{'fields':('mem_id',('auxilliary','current_position'),'positions_held','year')}),      )
+                             ("Church details",{'fields':('mem_id',('auxilliary','current_position'),'positions_held',('year','completed'))}),      )
 
 admin.site.register(member, member_Admin)
 admin.site.register(Halls)

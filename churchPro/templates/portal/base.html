@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+{% block title %}
+    <title>WELCOME TO NUBS CHURCH DATABASE</title>
+{% endblock title %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="root" >
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-responsive.css"/>
+    
+     
+	  	<link rel="stylesheet" type="text/css" href="/static/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+	
+		<script type="text/javascript" src="/static/js/modernizr.custom.79639.js"></script> 
+    
+    <style type="text/css">
+		
+		
+		
+  		.hr { height:5; width:938px;  border-top:6px solid black; margin-left:-50px;}
+  		.hr hr { display:none; }
+
+    
+      body {
+          padding-top: 60px;
+          padding-bottom: 40px;
+	        
+	
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+
+     #footer {
+        height: 60px;
+      }
+      #footer {
+        background-color: #f5f5f5;
+      }
+
+      /* Lastly, apply responsive CSS fixes as necessary */
+      @media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+      
+      
+      #chart {
+        height: 300px;
+    }
+
+    #stats-table {
+        /*margin-top: 10px;*/
+    }
+
+    #stats-table td {
+        font-size: 11px;
+        padding: 6px;
+    }
+
+    #notifications div {
+        margin: 3px 0px;
+        font-size: 11px;
+    }
+    </style>
+    
+     
+    
+  </head>
+
+  <body data-spy="scroll" data-target=".subnav" data-offset="50" style = "background-color: ;">
+  
+   <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container"style = "background-color: ;">
+        
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href= "/home">NUBS DB</a>
+          <ul class = "nav">
+             <li>   <a href = "/memberz">Members </a></li>
+             <li>   <a href = "/admin" target ="_blank">Database </a></li>
+             <li>   <a href = "#settings">Settings </a></li>
+          </ul>
+          <div class="btn-group pull-right"> 
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+               <i class="icon-user"></i> welcome {{user.username}}
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Change Password</a></li>
+              <li class="divider"></li>
+              <li><a href="/logout">Sign Out</a></li>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+{% block content %}
+<div class="row-fluid" style="margin-top:0px;height:; background-color:white;">
+<div class ="container">
+<div class="span12 well well-small" style="box-sizing: border-box;">
+        <h2>Welcome to NUBS DATABASE SYSTEM!!</h2>
+    </div></div>
+<div class = "container " style="background-color:;height:430px;">
+
+
+
+
+  <div class="span5" style = "background-color:black;">  
+  
+  <span class="thumbnail">
+                  <img alt="260x180" data-src="holder.js/260x180" style="width: 600px; height: 340px;" src="/static/images/prayer.jpeg">
+                              </img>
+                     
+                    </span>
+  
+  
+  
+  </div>
+    <div class="span3">	
+	<h3>Current Statistics</h3>
+        <table border="0" cellpadding="3" class="table table-bordered" id="stats-table">
+            <tbody>
+           
+            <tr>
+                <td><b>Male</b> Members</td>
+                <td>{{male_memberz.count}}</td>
+            </tr>
+            <tr>
+                <td><b>Female</b> Members</td>
+                <td>{{female_memberz.count}}</td>
+            </tr>
+          
+             <tr>
+                <td>Total Church Members</td>
+                <td>{{memberz.count}}</td>
+            </tr>
+        </tbody></table> 
+        
+        <table border="0" cellpadding="3" class="table table-bordered" id="stats-table">
+            <tbody>
+           
+           
+           <tr>
+                <td>level <b>400</b> Members</td>
+                <td>{{memberz_400.count}}</td>
+            </tr>
+            <tr>
+                <td>level <b>300</b> Members</td>
+                <td>{{memberz_300.count}}</td>
+            </tr>
+            <tr>
+                <td>level <b>200</b> Members</td>
+                <td>{{memberz_200.count}}</td>
+            </tr>
+            <tr>
+                <td>level <b>100</b> Members</td>
+                <td>{{memberz_100.count}}</td>
+            </tr>
+            
+        </tbody></table>    
+    
+    </div>
+      <div id ="notifications"class="span4">
+      
+      <h3>Notifications</h3>
+
+        <div class="alert alert-danger">
+            <a class="close" data-dismiss="alert" href="#">×</a>
+            <h4>Recently added </h4>
+            <b>{{new_memberz|length}}</b> member{{new_memberz|pluralize}} were recently added
+            {% if new_memberz|length %}<a href ="#/new/memberz/">  Click to view</a> {% endif %}
+            
+        </div>
+        
+        <div class="alert alert-warning">
+            <a class="close" data-dismiss="alert" href="#">×</a>
+            <h4>No Level</h4>
+            <b>{{nol_memberz|length}}</b> Member{{ nol_memberz|pluralize }} with <b>NO</b>
+             level Provided {% if nol_memberz|length %}<a  href="#/indicate/level/" >  Click To view</a>
+  {% endif %}      </div>
+        
+        <div class="alert alert-info">
+            <a class="close" data-dismiss="alert" href="#">×</a>
+            <h4>No Year</h4>
+             <b>{{noy_memberz|length}}</b> Member{{noy_memberz|pluralize}} with <b>NO</b> 
+             year of completion indicated {% if noy_memberz|length %} <a  href="#indicate/year/" >  Click To view</a> {% endif %}
+        
+        </div>
+         <div class="alert alert-success">
+            <a class="close" data-dismiss="alert" href="#">×</a>
+            <h4>Alumni</h4>
+             <b>{{alumni|length}}</b> Member{{alumni|pluralize}} in the alumni list
+             {% if alumni|length %}<a  href="#alumni/list/" >  Click To view</a> {% endif %}
+              
+        </div>
+
+    </div>
+      </div>
+      </div>
+
+
+
+</div>
+
+   
+{% endblock %}
+ 
+ 
+
+  </div>    
+	 <div class="container" style ="">
+	        <div class="footer" >   
+<div class="alert alert-info" style="height:30px;"> 
+<strong class= "pull-right" style = "background-color:;">Powered by<a href="#nubs"> NUBS info-team </a> </strong>
+              
+   </div> 
+   
+   </div>
+    
+
+
+
+
+
+
+
+    <!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+   <!-- <script src="/static/bootstrap/js/jquery.js"></script> -->
+   <!-- <script src="/static/bootstrap/js/bootstrap-transition.js"></script>-->
+    <script src="/static/bootstrap/js/bootstrap-alert.js"></script>
+    <!-- <script src="/static/bootstrap/js/bootstrap-modal.js"></script> -->
+    <script src="/static/bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-scrollspy.js"></script>
+    <!-- <script src="/static/bootstrap/js/bootstrap-tab.js"></script>-->
+    <script src="/static/bootstrap/js/bootstrap-tooltip.js"></script>
+     <!-- <script src="/static/bootstrap/js/bootstrap-popover.js"></script> -->
+    <script src="/static/bootstrap/js/bootstrap-button.js"></script>
+     <!--<script src="/static/bootstrap/js/bootstrap-collapse.js"></script> -->
+    <!-- <script src="/static/bootstrap/js/bootstrap-carousel.js"></script>-->
+    <script src="/static/bootstrap/js/bootstrap-typeahead.js"></script>
+   <!-- <script src="/static/bootstrap/js/bootstrap-modal.js"></script> -->
+
+ 
+  
+   <script src="/static/bootstrap/js/jquery.js"></script>	
+   
+	 <script src="/static/bootstrap/js/bootstrap.js"></script>
+	<!--<script src="/static/bootstrap/js/bootstrap-transition.js"></script>-->
+         <script src="/static/bootstrap/js/bootstrap-tab.js"></script>
+   <script type="text/javascript">
+    $(function (){
+    $('#myTab').tab('show');
+
+    </script>
+<script src="/static/bootstrap/js/bootstrap-carousel.js"></script>
+	<script type="text/javascript">
+ 		 $(function(){
+     	 $('#myCarousel').carousel({interval:5000});
+ 	 })
+ 	 </script>
+<script src="/static/bootstrap/js/bootstrap-collapse.js"></script>
+ 	 <script type="text/javascript">
+ 	 	$(function(){
+ 	 	$(".collapse").collapse();
+ 	 	})	
+ 	 	</script>
+
+
+	 <script src="/static/bootstrap/js/bootstrap-transition.js"></script>
+	 <script src="/static/bootstrap/js/bootstrap-alert.js"></script>
+		<script type="text/javascript">
+ 		 $(function(){
+     	 $(".alert").alert();
+ 	 })
+ 	 </script>
+ 	 
+ 	 <script src="/static/bootstrap/js/bootstrap-modal.js"></script>
+ 	 <script type="text/javascript">
+ 	 	$(function(){
+ 	 	$('#myModal').modal('show');
+ 	 	
+ 	 	})	
+ 	 	</script>
+ 	 	
+ 	 	 <script src="/static/bootstrap/js/bootstrap-popover.js"></script>
+ 	 <script type="text/javascript">
+ 	 	$(function(){
+ 	 	$('.example').popover(options);
+ 	 	})	
+ 	 	</script>
+  
+  
+ </body> 
+</html>

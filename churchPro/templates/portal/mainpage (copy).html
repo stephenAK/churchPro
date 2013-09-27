@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+{% block title %}
+    <title>Portal</title>
+{% endblock title %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="GOD'S LOVE" >
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-responsive.css"/>
+    
+    <style type="text/css">
+		
+		
+  		.hr { height:5; width:938px;  border-top:6px solid black; margin-left:-50px;}
+  		.hr hr { display:none; }
+
+    
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+
+     #footer {
+        height: 60px;
+      }
+      #footer {
+        background-color: #f5f5f5;
+      }
+
+      /* Lastly, apply responsive CSS fixes as necessary */
+      @media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+    </style>
+    
+      <!-- <link href="/static/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"> -->
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+  
+   <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">AICS VESSEL MANAGEMENT SYSTEM</a>
+          <div class="btn-group pull-right"> 
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+               <i class="icon-user"></i>  {{user.username}}
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Profile</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Sign Out</a></li>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+{% block content %}
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">QUICK LINKS</li>
+              <li class="active"><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li class="nav-header">Sidebar</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li class="nav-header">Sidebar</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#"></a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+
+
+<div class="span10"> 
+<ul class="thumbnails">
+<li class="span2">
+<a class="thumbnail"  href ="/crew">
+<img alt="260x180" data-src="holder.js/260x180" style="width: 260px; height: 180px;" src="/static/images/krew.jpg">
+</img>
+<h5>CREW MANAGEMENT</h5>
+</a>
+</li>
+
+<li class="span2">
+<a class="thumbnail" href="#">
+<img alt="260x180" data-src="holder.js/260x180" style="width: 260px; height: 180px;" src="/static/images/certificate.jpg">
+</img>
+<h5>CERTIFICATES</h5>
+</a>
+</li>
+<li class="span2">
+<a class="thumbnail" href="#">
+<img alt="260x180" data-src="holder.js/260x180" style="width: 260px; height: 180px;" src="/static/images/invent.jpg">
+</img>
+<h5>INVENTORY</h5>
+</a>
+</li>
+<li class="span2">
+<a class="thumbnail" href="#">
+<img alt="260x180" data-src="holder.js/260x180" style="width: 260px; height: 180px;" src="/static/images/budget.jpg">
+</img>
+<h5>BUDGET</h5>
+</a>
+</li>
+
+<li class="span2">
+<a class="thumbnail" href="#">
+<img alt="260x180" data-src="holder.js/260x180" style="width: 260px; height: 180px;" src="/static/images/operation.jpg">
+</img>
+<h5>OPERATIONS</h5>
+</a>
+</li>
+
+<li class="span2">
+<a class="thumbnail" href="#">
+<img alt="260x180" data-src="holder.js/260x180" style="width: 260px; height: 180px;" src="/static/images/reports.jpg">
+</img>
+<h5>REPORTS</h5>
+</a>
+</li>
+</ul>
+</div><!--/. span10-->
+
+
+<div class="span10"> 
+<ul class="thumbnails">
+<li class="span2">
+<a class="thumbnail" href="#">
+<img alt="260x180" data-src="holder.js/260x180" style="width: 260px; height: 180px;" src="/static/images/port.jpg">
+</img>
+<h5>PORT OPERATIONS</h5>
+</a>
+</li>
+
+<li class="span2">
+<a class="thumbnail" href="#">
+<img alt="260x180" data-src="holder.js/260x180" style="width: 260px; height: 180px;" src="/static/images/purchases.jpg">
+</img>
+<h5>PURCHASES</h5>
+</a>
+</li>
+
+<li class="span2">
+<a class="thumbnail" href="#">
+<img alt="260x180" data-src="holder.js/260x180" style="width: 260px; height: 180px;" src="/static/images/engine.jpg">
+</img>
+<h5>ENGINE</h5>
+</a>
+</li>
+</ul>
+</div><!--/. span10-->
+
+</div>
+</div>
+{% endblock %}
+      <div id="footer">
+      <div class="container">
+        <p class="muted credit">Developed by <a href="www.blupaygh.com">blupay systems </a> .</p>
+      </div>
+    </div>
+
+  </body>     <!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+   <!-- <script src="/static/bootstrap/js/jquery.js"></script> -->
+   <!-- <script src="/static/bootstrap/js/bootstrap-transition.js"></script>-->
+    <script src="/static/bootstrap/js/bootstrap-alert.js"></script>
+    <!-- <script src="/static/bootstrap/js/bootstrap-modal.js"></script> -->
+    <script src="/static/bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-scrollspy.js"></script>
+    <!-- <script src="/static/bootstrap/js/bootstrap-tab.js"></script>-->
+    <script src="/static/bootstrap/js/bootstrap-tooltip.js"></script>
+     <!-- <script src="/static/bootstrap/js/bootstrap-popover.js"></script> -->
+    <script src="/static/bootstrap/js/bootstrap-button.js"></script>
+     <!--<script src="/static/bootstrap/js/bootstrap-collapse.js"></script> -->
+    <!-- <script src="/static/bootstrap/js/bootstrap-carousel.js"></script>-->
+    <script src="/static/bootstrap/js/bootstrap-typeahead.js"></script>
+   <!-- <script src="/static/bootstrap/js/bootstrap-modal.js"></script> -->
+
+ 
+  
+   <script src="/static/bootstrap/js/jquery.js"></script>	
+   
+	 <script src="/static/bootstrap/js/bootstrap.js"></script>
+	<!--<script src="/static/bootstrap/js/bootstrap-transition.js"></script>-->
+         <script src="/static/bootstrap/js/bootstrap-tab.js"></script>
+   <script type="text/javascript">
+    $(function (){
+    $('#myTab').tab('show');
+
+    </script>
+<script src="/static/bootstrap/js/bootstrap-carousel.js"></script>
+	<script type="text/javascript">
+ 		 $(function(){
+     	 $('#myCarousel').carousel({interval:5000});
+ 	 })
+ 	 </script>
+<script src="/static/bootstrap/js/bootstrap-collapse.js"></script>
+ 	 <script type="text/javascript">
+ 	 	$(function(){
+ 	 	$(".collapse").collapse();
+ 	 	})	
+ 	 	</script>
+
+
+	 <script src="/static/bootstrap/js/bootstrap-transition.js"></script>
+	 <script src="/static/bootstrap/js/bootstrap-alert.js"></script>
+		<script type="text/javascript">
+ 		 $(function(){
+     	 $(".alert").alert();
+ 	 })
+ 	 </script>
+ 	 
+ 	 <script src="/static/bootstrap/js/bootstrap-modal.js"></script>
+ 	 <script type="text/javascript">
+ 	 	$(function(){
+ 	 	$('#myModal').modal('show');
+ 	 	
+ 	 	})	
+ 	 	</script>
+ 	 	
+ 	 	 <script src="/static/bootstrap/js/bootstrap-popover.js"></script>
+ 	 <script type="text/javascript">
+ 	 	$(function(){
+ 	 	$('.example').popover(options);
+ 	 	})	
+ 	 	</script>
+  
+  
+
+</html>

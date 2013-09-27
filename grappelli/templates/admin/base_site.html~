@@ -1,20 +1,14 @@
 {% extends "admin/base.html" %}
 {% load i18n grp_tags %}
- <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css" type="text/css"/>
-		 <link rel="stylesheet" type="text/css"  href="/static/bootstrap/css/bootstrap-responsive.css"/>
+ 
 
 
 
-{% block title %}{{ title }} | {% trans 'Django site admin' %}{% endblock %}
+{% block title %}{{ title }} | {% trans 'Church Site Admin' %}{% endblock %}
 
 {% block branding %}
-    <h1 id="site-name">{% trans 'galore' %}</h1>
+    <h1 id="site-name">{% trans 'CHURCH ADMINISTRATION' %}</h1>
 {% endblock %}
-
+hgggggggggggghfh
 {% block nav-global %}{% endblock %}
-<script src="/static/bootstrap/js/bootstrap-carousel.js"></script>
-	<script type="text/javascript">
- 		 $(function(){
-     	 $('#myCarousel').carousel({interval:5000});
- 	 })
- 	 </script>  
+ 
